@@ -5,7 +5,7 @@ public class PayFineControl {
 	private CONTROL_STATE state;
 	
 	private Library library;
-	private Member member;;
+	private Member member;
 
 
 	public PayFineControl() {
