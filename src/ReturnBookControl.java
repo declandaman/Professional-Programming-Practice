@@ -1,7 +1,10 @@
 
 public class ReturnBookControl {
+    
     private ReturnBookUI ui;
+    
     private enum CONTROL_STATE {INITIALISED, READY, INSPECTING};
+    
     private CONTROL_STATE state;
     private Library library;
     private Loan currentLoan;
