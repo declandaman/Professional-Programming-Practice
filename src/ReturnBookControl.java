@@ -6,13 +6,13 @@ public class ReturnBookControl {
     
     private ControlState state;
     
-    private Library library;
+    private library library;
     
-    private Loan currentLoan;
+    private loan currentLoan;
 
     
     public ReturnBookControl() {
-        this.library = Library.INSTANCE();
+        this.library = library.INSTANCE();
         
         state = ControlState.INITIALISED;
     }
@@ -36,7 +36,7 @@ public class ReturnBookControl {
             throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
         }
         
-        Book currentBook = library.book(bookId);
+        book currentBook = library.Book(bookId);
         
         if (currentBook == null) {
             ui.display("Invalid Book Id");
