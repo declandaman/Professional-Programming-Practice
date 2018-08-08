@@ -1,6 +1,10 @@
 public class ReturnBookControl {
+<<<<<<< HEAD
 
 <<<<<<< HEAD
+=======
+  
+>>>>>>> f0c0a0e5a059bddb9e814303bbc9291527aa0624
     private ReturnBookUi ui;
     
     private enum ControlState { INITIALISED, READY, INSPECTING };
@@ -17,6 +21,7 @@ public class ReturnBookControl {
         
         state = ControlState.INITIALISED;
     }
+<<<<<<< HEAD
 =======
 	private ReturnBookUI ui;
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
@@ -44,6 +49,8 @@ public class ReturnBookControl {
 
 
 <<<<<<< HEAD
+=======
+>>>>>>> f0c0a0e5a059bddb9e814303bbc9291527aa0624
     
     public void bookScanned(int bookId) {
         if (!state.equals(ControlState.READY)) {
@@ -85,6 +92,7 @@ public class ReturnBookControl {
         
         state = ControlState.INSPECTING;
     }
+<<<<<<< HEAD
 =======
 	public void bookScanned(int bookId) {
 		if (!state.equals(CONTROL_STATE.READY)) {
@@ -117,6 +125,8 @@ public class ReturnBookControl {
 	}
 >>>>>>> master
 
+=======
+>>>>>>> f0c0a0e5a059bddb9e814303bbc9291527aa0624
 
 	public void scanningComplete() {
 		if (!state.equals(CONTROL_STATE.READY)) {
