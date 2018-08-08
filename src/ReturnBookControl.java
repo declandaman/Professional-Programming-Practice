@@ -22,6 +22,7 @@ public class ReturnBookControl {
         if (!state.equals(ControlState.INITIALISED)) {
             throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
         }
+        
         this.ui = ui;
         
         ui.setState(ReturnBookUi.UiState.READY);
@@ -41,6 +42,7 @@ public class ReturnBookControl {
             ui.display("Invalid Book Id");
             return;
         }
+        
         if (!currentBook.On_loan()) {
             ui.display("Book has not been borrowed");
             return;

@@ -46,14 +46,18 @@ public class ReturnBookUi {
         output("Return Book Use Case UI\n");
         while (true) {
             switch (state) {
+                
                 case INITIALISED: {
                     break;
                 }
+                
                 case READY: {
                     String bookIdString = getInput("Scan Book (<enter> completes): ");
+                    
                     if (bookIdString.length() == 0) {
                         control.scanningComplete();
                     } 
+                    
                     else {
                         try {
                             int bookId = Integer.valueOf(bookIdString).intValue();
@@ -66,12 +70,15 @@ public class ReturnBookUi {
                     break;
                 }
                 
+                
                 case INSPECTING: {
                     String answer = getInput("Is book damaged? (Y/N): ");
                     boolean isDamaged = false;
+                    
                     if (answer.toUpperCase().equals("Y")) {
                         isDamaged = true;
                     }
+                    
                     control.dischargeLoan(isDamaged);
                 }
 
