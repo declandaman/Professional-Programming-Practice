@@ -120,8 +120,7 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-	
-	private static void payFine() {
+		private static void payFine() {
 		new PayFineUI(new PayFineControl()).run();		
 	}
 
@@ -159,7 +158,7 @@ public class Main {
 
 
 	private static void returnBook() {
-		new ReturnBookUi(new ReturnBookControl()).run();		
+		new ReturnBookUI(new ReturnBookControl()).run();		
 	}
 
 
