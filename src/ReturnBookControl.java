@@ -1,5 +1,5 @@
 public class ReturnBookControl {
-
+  
     private ReturnBookUi ui;
     
     private enum ControlState { INITIALISED, READY, INSPECTING };
@@ -16,20 +16,6 @@ public class ReturnBookControl {
         
         state = ControlState.INITIALISED;
     }
-
-    
-    public void setUi(ReturnBookUi ui) {
-        if (!state.equals(ControlState.INITIALISED)) {
-            throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
-        }
-        
-        this.ui = ui;
-        
-        ui.setState(ReturnBookUi.UiState.READY);
-        
-        state = ControlState.READY;
-    }
-
     
     public void bookScanned(int bookId) {
         if (!state.equals(ControlState.READY)) {
@@ -72,27 +58,23 @@ public class ReturnBookControl {
         state = ControlState.INSPECTING;
     }
 
-    
-    public void scanningComplete() {
-        if (!state.equals(ControlState.READY)) {
-            throw new RuntimeException("ReturnBookControl: cannot call scanningComplete except in READY state");
-        }
-        
-        ui.setState(ReturnBookUi.UiState.COMPLETED);
-    }
+	public void scanningComplete() {
+		if (!state.equals(CONTROL_STATE.READY)) {
+			throw new RuntimeException("ReturnBookControl: cannot call scanningComplete except in READY state");
+		}	
+		ui.setState(ReturnBookUI.UI_STATE.COMPLETED);		
+	}
 
-    
-    public void dischargeLoan(boolean isDamaged) {
-        if (!state.equals(ControlState.INSPECTING)) {
-            throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
-        }
-        
-        library.dischargeLoan(currentLoan, isDamaged);
-        
-        currentLoan = null;
-        
-        ui.setState(ReturnBookUi.UiState.READY);
-        
-        state = ControlState.READY;
-    }
+
+	public void dischargeLoan(boolean isDamaged) {
+		if (!state.equals(CONTROL_STATE.INSPECTING)) {
+			throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
+		}	
+		library.dischargeLoan(currentLoan, isDamaged);
+		currentLoan = null;
+		ui.setState(ReturnBookUI.UI_STATE.READY);
+		state = CONTROL_STATE.READY;				
+	}
+
+
 }
