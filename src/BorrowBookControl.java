@@ -49,8 +49,7 @@ public class BorrowBookControl {
 			currentState = ControlState.SCANNING; 
         }
         
-		else 
-		{
+		else {
 			ui.DisplayMessage("Member cannot borrow at this time");
 			ui.setState(BorrowBookUi.UiState.RESTRICTED); 
         }
